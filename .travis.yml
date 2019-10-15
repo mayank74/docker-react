@@ -1,0 +1,8 @@
+sudo: required 
+services:
+    - docker  
+before_install: 
+    - docker build -t MyTravisImage  -f Dockerfile.dev .
+script:
+    - docker run MyTravisImage npm run test -- --coverage
+
